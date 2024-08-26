@@ -15,7 +15,6 @@
   <depend>behaviortree_cpp</depend>
   <depend>behaviortree_ros2</depend>
 
-  <depend>drive_action_interfaces</depend>
   <depend>control_msgs</depend>
   <depend>trajectory_msgs</depend>
 

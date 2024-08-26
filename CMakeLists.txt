@@ -8,16 +8,11 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(behaviortree_ros2 REQUIRED)
-find_package(drive_action_interfaces REQUIRED)
 find_package(control_msgs REQUIRED)
 find_package(trajectory_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
-
-add_library(drive_plugin SHARED src/drive_for_seconds.cpp )
-target_compile_definitions(drive_plugin PRIVATE  BT_PLUGIN_EXPORT )
-ament_target_dependencies(drive_plugin behaviortree_ros2 drive_action_interfaces )
 
 add_library(log_message SHARED src/log.cpp)
 target_compile_definitions(log_message PRIVATE  BT_PLUGIN_EXPORT )
@@ -34,7 +29,6 @@ target_compile_definitions(joint_trajectory PRIVATE  BT_PLUGIN_EXPORT )
 ament_target_dependencies(joint_trajectory behaviortree_ros2 control_msgs trajectory_msgs )
 
 install(TARGETS
-  drive_plugin
   log_message
   parallel_groups
   joint_trajectory
